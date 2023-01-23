@@ -1,0 +1,3226 @@
+{\rtf1\ansi\deff0\nouicompat{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil Calibri;}{\f2\fnil\fcharset2 Calibri;}}
+{\colortbl ;\red0\green0\blue255;}
+{\*\generator Riched20 10.0.15063}\viewkind4\uc1 
+\pard\f0\fs24\lang1036 THE UNIVERSITY OF ZAMBIA SCHOOL OF NATURAL SCIENCES\par
+DEPARTMENT OF COMPUTER STUDIES\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+EMPLOYEE MANAGEMENT SYSTEM\par
+\par
+\par
+\par
+\par
+BY MWEEMBA SIMAANYA\par
+A thesis submitted in partial fulfillment of the requirements for the award of Bachelor\rquote s\par
+\par
+Degree of Computer Science.\par
+\par
+\par
+Copyright 2014\par
+\par
+1 | P a g e\par
+DECLARATION\par
+\par
+\par
+I, the undersigned hereby declare that the Employee Management System is my own work, that it has not been submitted for any degree or examination in any other university to my\par
+knowledge, and that all sources I have used or quoted have been indicated and acknowledged by complete references.\par
+\par
+Name: Mweemba Simaanya\par
+\par
+\par
+Signature:..............................                        Date:\'85\'85\'85\'85\'85\'85\'85\'85\'85\'85\'85\par
+\par
+\par
+\par
+\par
+\par
+Supervisor\par
+\par
+\par
+Name: Mr. Martin Phiri\par
+\par
+\par
+Signature:................................                      Date:\'85\'85\'85\'85\'85\'85\'85\'85\'85\'85\'85\par
+\par
+\par
+\par
+\par
+\par
+Course Coordinator\par
+\par
+\par
+Signature:................................                      Date:\'85\'85\'85\'85\'85\'85\'85\'85\'85\'85\'85.\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+2 | P a g e\par
+ACKNOWLEDGEMENTS\par
+\par
+\par
+I am greatly indebted to the following for their contribution to my work:\par
+\par
+\par
+The Almighty God, who gave me the insight and perseverance to accomplish this work. My parents for all the support. My siblings, Nanchengwa, Sylvia, Chimwemwe, Mwenzi, Karen and Boniface who I never had time for due to my busy schedule.\par
+\par
+My supervisor, Mr. Martin Phiri who\rquote s sounding advice helped me steer this project in the right direction, a work I will forever cherish.\par
+\par
+Members of staff at the Computer Studies department for the solid knowledge-base that enabled me carryout the research.\par
+\par
+Musafili Chilembo, who\rquote s in-depth knowledge in advanced Web Technologies such as AJAX, JSON and JQUERY was a great asset to my project.\par
+\par
+Finally, my classmates who\rquote s technical and moral support throughout my stay at the Computer\par
+\par
+Studies department was of great help.\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+3 | P a g e\par
+DEDICATION\par
+\par
+I dedicate this work to my parents who have always supported my dreams and aspirations, and given me all the financial support a child can ever need.\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+4 | P a g e\par
+LIST OF TERMINOLOGIES\par
+\par
+\par
+EMS \f1\endash\f0  Employee Management System\par
+\par
+\par
+MSS \f1\endash\f0  Management Self-Service\par
+\par
+\par
+HRMS \f1\endash\f0  Human Resource Management System HRIS \f1\endash\f0  Human Resource Information System HR \f1\endash\f0  Human Resource\par
+HOD \f1\endash\f0  Head of Department\par
+\par
+\par
+ESS \f1\endash\f0  Employee Self-Service\par
+\par
+\par
+WBS \f1\endash\f0  Work Breakdown Structure\par
+\par
+\par
+ERP \f1\endash\f0  Enterprise Resource Planning\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+5 | P a g e\par
+ABSTRACT\par
+\par
+\par
+Employees are the backbone of any company therefore their management plays a major role in deciding the success of an organization [1]. Employees Management Software makes it easy for the employer to keep track of all records. This software allows the administrator to edit employees, add new employees, transfer/promote/terminate employees. Each employee in the database is associated with a position can be added and edited when need arises. Employees can be transferred between positions easily without having to retype back their information in the database. You can check to see if there are duplicate positions/employees in the database.  Most of all, the employer can assign tasks to employees and assess their progress in order to keep track of employee performance.\par
+\par
+A flexible and easy to use Employee Management software solution for small and medium sized companies provides modules for personnel information management thereby organization and companies are able to manage the crucial organization asset \f1\endash\f0  people [2]. The combination of these modules into one application assures the perfect platform for re-engineering and aligning Human Resource processes along with the organizational goals. This system brings about an\par
+easy way of maintaining the details of employees working in any organization.\par
+\par
+\par
+It is simple to understand and can be used by anyone who is not even familiar with simple employees system. It is user friendly and just asks the user to follow step by step operations by giving easy to follow options. It is fast and can perform many operations for a company.\par
+The goal of this project is to design and develop an employee management system to fill existing gaps in the electronic management of employees.\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+6 | P a g e\par
+Table of Contents\par
+1      CHAPTER ONE: INTRODUCTION TO THE RESEARCH ........................................................................... 11\par
+\par
+1.1       PROBLEM STATEMENT................................................................................................................ 11\par
+\par
+1.2       PROJECT BACKGROUND .............................................................................................................. 11\par
+\par
+1.3       OBJECTIVES ................................................................................................................................. 12\par
+\par
+1.4       SCOPE .......................................................................................................................................... 12\par
+\par
+1.5       EXPECTED BENEFITS .................................................................................................................... 13\par
+\par
+1.6       REQUIREMENTS AND CONSTRAINTS .......................................................................................... 14\par
+\par
+1.6.1        Functional Requirements: ................................................................................................... 14\par
+\par
+1.6.2        Non-Functional Requirements: ........................................................................................... 16\par
+\par
+Since EMS application is a web-based application, internet connection must be established................ 16\par
+\par
+The EMS software personal database model will support MySQL environment as DBMS. ................. 16\par
+\par
+1.7       SUMMARY ................................................................................................................................... 16\par
+\par
+2      CHAPTER TWO \f1\endash\f0 RESEARCH................................................................................................................. 17\par
+\par
+2.1       INTRODUCTION ........................................................................................................................... 17\par
+\par
+2.2       LITERATURE REVIEWS ON TOPICS RELATED TO THE PROJECT ................................................... 17\par
+\par
+2.3       REVIEWS ON SEVERAL SOFTWARE METHODOLOGIES................................................................ 18\par
+\par
+2.4       REVIEW OF POSSIBLE DEVELOPMENT TOOLS AND SOFTWARE TO BE USED ............................. 20\par
+\par
+2.4.1        Back-end Technology .......................................................................................................... 20\par
+\par
+2.4.2        Database Management System .......................................................................................... 22\par
+\par
+2.5       REVIEW OF SIMILAR SYSTEMS .................................................................................................... 24\par
+\par
+2.6       SUMMARY ................................................................................................................................... 28\par
+\par
+3      CHAPTER THREE: SYSTEM ANALYSIS ................................................................................................... 29\par
+\par
+3.1       INTRODUCTION ........................................................................................................................... 29\par
+\par
+3.2       SOFTWARE DEVELOPMENT METHODOLOGY OF CHOICE ........................................................... 29\par
+\par
+3.3       SYSTEM DESIGN .......................................................................................................................... 29\par
+\par
+3.3.1        Use case analysis ................................................................................................................. 29\par
+\par
+3.3.2        Class diagram ...................................................................................................................... 36\par
+\par
+3.4       DEVELOPMENT TOOLS ................................................................................................................ 37\par
+\par
+3.4.1        Front End Technologies....................................................................................................... 37\par
+\par
+3.4.2        Back End Technologies........................................................................................................ 38\par
+\par
+3.5       SUMMARY ................................................................................................................................... 39\par
+\par
+7 | P a g e\par
+4      CHAPTER FOUR: DESIGN ..................................................................................................................... 40\par
+\par
+4.1       INTRODUCTION ........................................................................................................................... 40\par
+\par
+4.2       EXPLANATION OF THE PROPOSED SYSTEM ................................................................................ 40\par
+\par
+4.3       SYSTEM AND ALGORITHM FLOWCHARTS ................................................................................... 41\par
+\par
+4.4       SYSTEM STRUCTURE CHART DFD AND ERD ................................................................................ 43\par
+\par
+4.4.1        Data Flow Diagram (DFD).................................................................................................... 43\par
+\par
+4.4.2        ENTITY RELATIONSHIP DIAGRAM (ERD).............................................................................. 44\par
+\par
+4.5       STORYBOARD .............................................................................................................................. 45\par
+\par
+4.5.1        Sequence Diagrams............................................................................................................. 45\par
+\par
+4.6       INTERFACE DESIGN ..................................................................................................................... 47\par
+\par
+4.7       Sketches of graphics.................................................................................................................... 48\par
+\par
+4.8       SUMMARY ................................................................................................................................... 50\par
+\par
+5      CHAPTER 5: IMPLEMENTATION .......................................................................................................... 51\par
+\par
+5.1       INTRODUCTION ........................................................................................................................... 51\par
+\par
+5.2       DESCRIPTION OF DEVELOPED SYSTEM ....................................................................................... 51\par
+\par
+5.2.1        Accessing the system .......................................................................................................... 51\par
+\par
+5.3       TECHNICAL DETAILS OF IMPLEMENTED SYSTEM ........................................................................ 52\par
+\par
+5.3.1        Model View Controller architecture (MVC) ........................................................................ 52\par
+\par
+5.3.2        MySQL Triggers ................................................................................................................... 53\par
+\par
+5.3.3        Algorithms ........................................................................................................................... 54\par
+\par
+5.3.4        Pseudocode ......................................................................................................................... 55\par
+\par
+5.4       SCREENSHOTS OF DEVELOPED SYSTEM...................................................................................... 57\par
+\par
+5.5       SUMMARY ................................................................................................................................... 57\par
+\par
+6      CHAPTER SIX: TESTING AND VERIFICATION ........................................................................................ 58\par
+\par
+6.1       INTRODUCTION ........................................................................................................................... 58\par
+\par
+6.2       SCOPE .......................................................................................................................................... 58\par
+\par
+6.3       TESTING GOALS ........................................................................................................................... 58\par
+\par
+6.4       CONFIRMATION TESTING............................................................................................................ 58\par
+\par
+6.5       REGRESSION TESTING ................................................................................................................. 58\par
+\par
+6.6       TEST PLANS AND RESULTS .......................................................................................................... 59\par
+\par
+6.7       SUMMARY ................................................................................................................................... 62\par
+\par
+7      CHAPTER SEVEN: CONCLUSION .......................................................................................................... 63\par
+\par
+8 | P a g e\par
+7.1       INTRODUCTION ........................................................................................................................... 63\par
+\par
+7.2       RESULTS....................................................................................................................................... 63\par
+\par
+7.3       PROBLEMS FACED ....................................................................................................................... 63\par
+\par
+7.4       LIMITATIONS ............................................................................................................................... 63\par
+\par
+7.4.1        Custom report generation .................................................................................................. 63\par
+\par
+7.4.2        Head of Department heads all Projects .............................................................................. 63\par
+\par
+7.4.3        Leave Management ............................................................................................................ 64\par
+\par
+7.4.4        Browser support.................................................................................................................. 64\par
+\par
+7.5       FUTURE WORK ............................................................................................................................ 64\par
+\par
+7.5.1        Leave Management ............................................................................................................ 64\par
+\par
+7.5.2        Integration with payroll system .......................................................................................... 64\par
+\par
+7.5.3        Employee Performance....................................................................................................... 64\par
+\par
+7.5.4        Information archiving.......................................................................................................... 64\par
+\par
+7.6       LEARNING EXPERIENCE ............................................................................................................... 64\par
+\par
+7.7       CONCLUSION............................................................................................................................... 65\par
+\par
+8      REFERENCES ........................................................................................................................................ 66\par
+\par
+9      APPENDIX ............................................................................................................................................ 68\par
+\par
+9.1       Appendix A \f1\endash\f0  Sequence Diagrams .............................................................................................. 68\par
+\par
+9.1.1        Report generation ............................................................................................................... 68\par
+\par
+9.1.2        Edit account details ............................................................................................................. 68\par
+\par
+9.2       Appendix B \f1\endash\f0  Sample Code ......................................................................................................... 69\par
+\par
+9.2.1        Database Connectivity ........................................................................................................ 69\par
+\par
+9.2.2        User Authentication ............................................................................................................ 69\par
+\par
+9.2.3        PDF Library .......................................................................................................................... 71\par
+\par
+9.2.4        Leave application ................................................................................................................ 71\par
+\par
+9.2.5        Create new project and add member ................................................................................. 73\par
+\par
+9.3       Appendix C \f1\endash\f0  Screen shots of developed system ....................................................................... 74\par
+\par
+9.3.1        Employee interface ............................................................................................................. 74\par
+\par
+9.3.2        Admin interface................................................................................................................... 74\par
+\par
+9.3.3        Leave management............................................................................................................. 75\par
+\par
+9.3.4        Edit profile........................................................................................................................... 75\par
+\par
+9.4       Appendix I \f1\endash\f0  Testing.................................................................................................................... 76\par
+\par
+9 | P a g e\par
+9.4.1        Login .................................................................................................................................... 76\par
+\par
+9.4.2        Add new user ...................................................................................................................... 76\par
+\par
+9.4.3        Edit Account ........................................................................................................................ 77\par
+\par
+9.4.4        Leave request denied due to pending leave ....................................................................... 77\par
+\par
+9.4.5        Leave request successfully submitted ................................................................................ 78\par
+\par
+9.4.6        Create Project WBS ............................................................................................................. 78\par
+\par
+9.4.7        Generate reports................................................................................................................. 79\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+10 | P a g e\par
+1  CHAPTER ONE: INTRODUCTION TO THE RESEARCH\par
+\par
+1.1  PROBLEM STATEMENT\par
+Manual handling of employee information poses a number of challenges. This is evident in procedures such as leave management where an employee is required to fill in a form which may take several weeks or months to be approved. The use of paper work in handling some of these processes could lead to human error, papers may end up in the wrong hands and not forgetting\par
+the fact that this is time consuming. A number of current systems lack employee self-service meaning employees are not able to access and manage their personal information directly without having to go through their HR departments or their managers. Another challenge is that multi-national companies will have all the employee information stored at the headquarters of the company making it difficult to access the employee information from remote places when needed at short notice.\par
+\par
+The aforementioned problems can be tackled by designing and implementing a web based HR management system. This system will maintain employee information in a database by fully privacy and authority access. The project is aimed at setting up employee information system about the status of the employee, the educational background and the work experience in order to help monitor the performance and achievements of the employee through a password protected system.\par
+\par
+1.2  PROJECT BACKGROUND\par
+Employees are the backbone of any company therefore their management plays a major role in deciding the success of an organization [1]. Human Resource Management Software makes it easy for the employer to keep track of all records. This software allows the administrator to edit employees, add new employees as well as evaluate an employee\f1\rquote\f0 s performance. Employees can be managed efficiently without having to retype back their information in the database. You can check to see if there are duplicate positions/employees in the database.\par
+\par
+A flexible and easy to use Employee Management software solution for small and medium sized companies provides modules for personnel information management thereby organization and companies are able to manage the crucial organization asset \f1\endash\f0  people [2]. The combination of\par
+these modules into one application assures the perfect platform for re-engineering and aligning\par
+\par
+\par
+11 | P a g e\par
+Human Resource processes along with the organizational goals. This system brings about an easy way of maintaining the details of employees working in any organization.\par
+\par
+It is simple to understand and can be used by anyone who is not even familiar with simple employees system. It is user friendly and just asks the user to follow step by step operations by giving easy to follow options. It is fast and can perform many operations for a company\par
+\par
+\par
+\par
+\par
+1.3  OBJECTIVES\par
+In this world of growing technologies everything has been computerized. With large number of work opportunities the Human workforce has increased. Thus there is a need of a system which can handle the data of such a large number of Employees. This project simplifies the task of maintaining records because of its user friendly nature.\par
+\par
+The objective of this project is to provide a comprehensive approach towards the management of employee information. This will be done by designing and implementing an HR management system that will bring up a major paradigm shift in the way that employee information is\par
+handled.\par
+\par
+\par
+The objectives of this system include:\par
+\par
+\par
+\f2\'b7\f0         Design of a web based HR management system to fulfill requirements such as project management, leave management, report generation to assist in performance appraisal, ESS and employee trainings.\par
+\f2\'b7\f0         Well-designed database to store employee information.\par
+\par
+\f2\'b7\f0         A user friendly front-end for the user to interact with the system.\par
+\par
+\par
+\par
+\par
+1.4  SCOPE\par
+The scope of this project will be limited to the following:\par
+\par
+\f2\'b7\f0         Employee profiles:\par
+\par
+Employees will have access to their personal profiles and will be able to edit their details.\par
+\par
+\f2\'b7\f0         Electronic leave application:\par
+\par
+\par
+\par
+Complete elimination of paperwork in leave management by enabling an employee apply for leave as well as check their leave status through the system. This will also enable the HR manager to accept/reject leave application through the system\par
+\f2\'b7\f0         Project Management:\par
+\par
+Assign tasks and projects to employees, assign a project team and keep track of the progress.\par
+\f2\'b7\f0         Report generation:\par
+\par
+The HR manager will be able to generate timely reports in order to monitor employees and this can be used for performance appraisals. The reports will be have all the information of an employee from educational background, trainings attended, projects done as well as technical skills.\par
+\f2\'b7\f0         Recruitment Process:\par
+\par
+The admin will add an employee and a default password and employee id will be generated and sent to the new employees email. The HR manager will then have the ability to add an employee\rquote s information to the database.\par
+\par
+\par
+\par
+1.5  EXPECTED BENEFITS\par
+This system is expected to be user friendly and will offer easy access to data as well as services such as online leave management, e-recruitment, and timely report generation, monitoring employee trainings, task management, project management and employee tracking.\par
+\par
+The employee is expected to have direct interaction with this system through a password protected user account therefore proposed system is web based to enable accessibility from any location as long as internet connectivity is available. This direct interaction with the system will enable employee self-service.\par
+\par
+Without an employee management system, it\rquote s a tedious job for the human resource department to keep track of each and every employee and even harder for a project manager to assign tasks to the project team. The HR management system will be developed to provide information of\par
+employees and many other facilities at the click of a button.\par
+\par
+\par
+\par
+\par
+\par
+13 | P a g e\par
+1.6  REQUIREMENTS AND CONSTRAINTS\par
+\par
+1.6.1   Functional Requirements:\par
+Authentication\par
+\par
+\f2\'b7\f0         Login- The user can login to the HRMS system with his/her username and password.\par
+\par
+\f2\'b7\f0         Logout- The user can log out from the HRMS system.\par
+\par
+Login failure- If the user does not exist in the database or the user has not yet being authorized by the HRMS admin.\par
+Authorization\par
+\par
+\f2\'b7\f0         User role check- After logging in, the user role will be checked from the database and the user interface will be displayed according to their role.\par
+Process Data\par
+\par
+\f2\'b7\f0         Display- User with defined roles can display the content of the database. Being more specific, employee can only view his/her personal information. HOD can not only see his/her personal information but also employee\rquote s information who are under his/her department or school. Admin and HR can display their personal information and all employees\rquote  information.\par
+\f2\'b7\f0         Edit- A user with employee role can edit his/her specific personal information. Dean or HOD can only edit employees\rquote  personal information that is under his/her coverage except user role type. Admin can edit all information related to all employees\rquote  including their user role type.\par
+\f2\'b7\f0         Search- User with Dean/HOD role can search the content of database for the employees\rquote  who are under his/her coverage. HR and admin roles can search all the employees\rquote  information in the database. Search feature works on specific keywords showing employee\rquote s characteristics, peculiarities, skills, features, and etc. For example, HR wants to find employees\rquote  who are well trained in \ldblquote Java Programming Language\rdblquote . He/she will write the specific keyword in the search bar and press the available search button. Afterwards, he/she will find a list of all the employees\rquote  who know \ldblquote Java Programming\rdblquote . Update authentication- This feature can be used only by admin role type. Admin can update the role type of a specific user. For example, an employee got promotion and his role type will be changed from employee role id to HOD or Dean role. Admin will be\par
+able to update this authentication mechanism.\par
+\par
+14 | P a g e\par
+Leave Application/Approval\par
+\par
+\f2\'b7\f0         Leave application- The user can be able to fill in leave application form in the appropriate fields.\par
+\f2\'b7\f0         Leave approval- The admin can be able to approve leave applications based on the reasons stated, length of leave as well as available HR on a department.\par
+Leave days accrued- The user shall be able to check the number of leave days accrued.\par
+\par
+Recruitment\par
+\par
+\f2\'b7\f0         Add new employee- HR role type is able to add a new employee to the database. The new employee will have all the required personal information related to him/her. The new created employee will have an id.\par
+\f2\'b7\f0         Add a new user- After a new employee has being created by HR role, admin role is responsible for creating a new user by the specified id assigned in the \ldblquote Add a new employee\rdblquote  feature. The unique id will be given by the system. Admin will assign a new role such as employee, Dean, HOD, HR, and admin to the new created user.\par
+\par
+\par
+Report generation\par
+\par
+\f2\'b7\f0         Report generation- HR shall be able to generate a report in pdf format for each employee based on the information in the database.\par
+\par
+Project Management\par
+\par
+\par
+\f2\'b7\f0         Create project team: The HOD of department or project manager shall be able to create a project and come up with a project team.\par
+\f2\'b7\f0         Work Breakdown Structure (WBS): The HOD or project manager shall be able to assign tasks to the project team as well as monitor their progress.\par
+\par
+Trainings and Task Management\par
+\par
+\par
+\f2\'b7\f0         Trainings: The HOD shall create trainings and assign employees that are required to attend the trainings as well.\par
+\f2\'b7\f0         Tasks: HOD shall assign tasks to employees in his/her department.\par
+\par
+\par
+\par
+\par
+\par
+\par
+15 | P a g e\par
+1.6.2   Non-Functional Requirements:\par
+Performance requirements\par
+\par
+\par
+There is no restriction on the number of the users to be added to the database.\par
+\par
+\par
+Hardware requirements\par
+\par
+\par
+EMS should be able to work on a computer with the following minimum hardware specifications:\par
+\par
+OS: Windows XP/Vista/7/8 and Linux CPU: Pentium III (700MHz) and above Memory: 128 MB and above\par
+Capacity: 4GB of hard drive\par
+\par
+\par
+Others: Network interface card, mouse, keyboard, and monitor.\par
+\par
+\par
+Software requirements\par
+\par
+\par
+Since EMS application is a web-based application, internet connection must be established. The EMS software personal database model will support MySQL environment as DBMS.\par
+\par
+\par
+1.7  SUMMARY\par
+This chapter began by giving a brief overview of the entire project, the background of the project and the scope. The problem definition and solution highlights the current problems faced with\par
+the use of the systems that are in place and outlines briefly the solution system to be developed. The next chapter will focus on the literature review. This is literature that relates to the project\par
+and similar systems.\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+16 | P a g e\par
+2  CHAPTER TWO \f1\endash\f0 RESEARCH\par
+ \par
+2.1  INTRODUCTION\par
+This  chapter summarizes  the  evaluation  of  the  literature relevant  to  the Employee Management System.  It examines theories, concepts, approaches, methods and techniques relevant to the project.  Similar existing technologies relating to the development the EMS are discussed.\par
+\par
+2.2  LITERATURE REVIEWS ON TOPICS RELATED TO THE PROJECT\par
+A HRMS refers to the systems and processes at the intersection between human resource management (HRM) and information technology. It merges HRM as a discipline and in particular it\f1\rquote\f0 s basic HR activities and processes with the information technology field whereas the programming of data processing systems evolved into standardized routines and packages of enterprise resource planning (ERP) software. [3]\par
+\par
+An organization or company with a very large number of employees manages a greater volume\par
+\par
+of data. This activity can be daunting without a more sophisticated tool to store and retrieve data. The various levels of sophistication can be examined by looking at the evolutionary aspects of HR technology. These aspects can be characterized into four stages of development: Paper-based systems, early personal computer (PC) technology, electronic databases, and Web-based technology. [4]\par
+\par
+The benefits of automation are becoming widely known to HR and other areas of the business. The focus has shifted to automating as many transactions as possible to achieve effectiveness and efficiencies.\par
+\par
+The technology of the future will be about speedy access to accurate current information, and reliability to access this information via multiple systems will give organizations a strategic edge. HR is expected to relinquish its role as sole owner of HR information, so that managers and employees can use this information to solve their own problems using Web-based systems. This new system will not necessarily mean reduction in HR staff. The new system will enable HR professionals to focus on transforming information into knowledge that can be used by the organization for decision making; it will be about HR and IT working together to leverage this\par
+technology. A recent study by the Hackett Group, a business process advisory firm found that\par
+\par
+17 | P a g e\par
+high-performing organizations spend 25 percent less than their peers on HR because they use technology effectively. [5]\par
+\par
+The two most popular Web-based HR applications used today are self-service for employees and self-service for managers. These applications have enabled companies to shift responsibility for viewing and updating records onto individual employees and have fundamentally changed the manner in which employees acquire information and relate to their HR departments. [6]\par
+\par
+\par
+\par
+\par
+2.3  REVIEWS ON SEVERAL SOFTWARE METHODOLOGIES\par
+A software development methodology is a collection of procedures, techniques, tools, and documentation aids which will help the systems developers in their efforts to implement a new information system. [7]\par
+There are a number of software development methodology each of which are adopted based on a number of factors relating to the project e.g. Time, cost, incorporation of requirement changes during the development process, system complexity, communication between customers and developers, software criticality, size of the development team. These generic models are not definitive descriptions of software processes. Rather, they are abstractions of the process that can be used to explain different approaches to software development. You can think of them as process frameworks that may be extended and adapted to create more specific software engineering processes. Below are a selected number of models:\par
+\par
+\par
+The Waterfall Model\par
+\par
+The waterfall model is a sequential design process, often used in software development processes. It takes the fundamental process activities of specification, development, validation, and evolution and represents them as separate process phases such as requirements specification,\par
+software design, implementation, testing, and so on. [8]\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+18 | P a g e\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+Figure 2.1 the Waterfall Model\par
+\par
+\par
+\par
+\par
+\par
+Incremental Model:\par
+\par
+This approach interleaves the activities of specification, development, and validation. The system is developed as a series of versions (increments), with each version adding functionality to the previous version.\par
+\par
+\par
+\par
+Figure 2.2 Incremental Model\par
+\par
+\par
+\par
+Reuse-oriented methodology:\par
+\par
+This approach is based on the existence of a significant number of reusable components. The system development process focuses on integrating these components into a system rather than\par
+developing them from scratch.\par
+\par
+\par
+\par
+\par
+19 | P a g e\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+Figure 2.3 Reuse-oriented software engineering\par
+\par
+\par
+\par
+\par
+\par
+\par
+2.4  REVIEW OF POSSIBLE DEVELOPMENT TOOLS AND SOFTWARE TO BE USED\par
+The following are various development tools and software that could be used for the system.\par
+\par
+\par
+2.4.1   Back-end Technology\par
+JavaServer Pages\par
+\par
+\par
+JavaServer Pages (JSP) is a technology that helps software developers create dynamically generated web pages based on HTML,XML, or other document types. Released in 1999 by Sun Microsystems, JSP is similar to PHP, but it uses the Java programming language.\par
+To deploy and run JavaServer Pages, a compatible web server with a servlet container, such as Apache Tomcat or Jetty, is required. [9]\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+20 | P a g e\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+Figure 2.4 The JSP Model 2 architecture\par
+\par
+\par
+\par
+\par
+ASP.NET\par
+\par
+\par
+ASP.NET  (Active Server  Pages.NET) is  a  proprietary scripting language or  application framework developed by Microsoft used to create enterprise wide web applications which can be accessible globally. ASP.NET:\par
+\par
+\f2\'b7\f0         Drastically reduces the amount of code required to build large applications.\par
+\par
+\f2\'b7\f0         The HTML produced by the ASP.NET page is sent back to the browser. The application source code you write is not sent and is not easily stolen\par
+\f2\'b7\f0         ASP.NET makes for easy deployment. There is no need to register components because the configuration information is built-in\par
+\f2\'b7\f0         ASP.NET validates information (validation controls) entered by the user without writing a single line of code.\par
+\par
+ASP.NET makes  development  of any web  based  application  or system  easier and  faster as  it allows  developers  to  drag  and  drop  components  and  specify their  functions  while code is automatically generated, as a result of this ease complex applications can be developed in a short period  of time  even  by programmers  who  are not  too  familiar  with  the\par
+language.  Despite ASP.NET being robust it has also proven to be more expensive to implement\par
+\par
+21 | P a g e\par
+and the fact that it\rquote s not platform independent limits the number of places in which it can be\par
+\par
+used. [10]\par
+\par
+\par
+PYTHON\par
+\par
+\par
+Python is a widely used general-purpose, high-level programming language. Its design philosophy emphasizes code readability, and its syntax allows programmers to express concepts in fewer lines of code than would be possible in languages such as C. The language provides constructs intended to enable clear programs on both a small and large scale.\par
+\par
+Python supports multiple programming paradigms, including object-oriented, imperative and functional programming or procedural styles. It features a dynamic type system and automatic memory management and has a large and comprehensive standard library.\par
+\par
+Like other dynamic languages, Python is often used as a scripting language, but is also used in a wide range of non-scripting contexts. Using third-party tools, such as Py2exe or Pyinstaller, Python code can be packaged into standalone executable programs. Python interpreters are available for many operating systems. [11]\par
+\par
+PHP\par
+\par
+\par
+PHP (Hypertext Preprocessor) is an open source server side scripting language, it is platform independent, meaning it can work on all major operating systems.  PHP  supports many types of databases  including MySQL and  is  supported  by a large  community of users  and developers. PHP  is  an excellent  choice for developing web  based  systems  because it\rquote s  an open  source technology and has  a large community of users and developers, this  makes PHP  a language that is easy to learn and understand, furthermore coding solutions and bugs are resolved quickly. The fact that  PHP  is platform independent gives the developer the freedom to develop an application without  worrying  about  the operating system  on  a  user\rquote s  machine. PHP has the ability to integrate with most web technologies thus it can be used as middleware. [12]\par
+\par
+2.4.2   Database Management System\par
+MySQL\par
+\par
+\par
+\par
+\par
+22 | P a g e\par
+MySQL is an open source database that is platform independent and can easily interface with a number of  scripting languages,  it  works  best  with  PHP  though. The number of advantages of using MySQL which include, the ability to handle stored procedures, triggers, SQL and User- Defined functions.  It also offers a high-speed data load utility and support for various drivers (ODBC, JDBC, .NET, PHP).\par
+\par
+Deploying  a MySQL database has  proved  to  be cheap  and  easy as  it  doesn\rquote t  require special hardware or software requirements, it can work well on any web server but most professionals recommend the apache web server. MySQL is an excellent database to use when developing web based applications because its platform independent and can easily interface with a number of scripting languages.\par
+\par
+MS SQL (Microsoft SQL Server)\par
+\par
+\par
+Microsoft SQL Server is Microsoft\rquote s relational web hosting database used to store website information like user information, it\rquote s mostly used on windows servers and it is not free. It has advanced features such as buffer management, logging and transaction, concurrency and locking, replication services, integration services, stored procedures and triggers. MS  SQL databases work  well  with  ASP.NET and  also  integrate  well  with  other  Microsoft products.  MS  SQL has  been  used  to  support  large enterprise  applications  worldwide,  its  most common  use is to  store data  for Customer Relationship  Management(CRM)  systems  in  large organization that need to keep track of their customers data for example mobile phone service providers,  this database though  is not platform independent and is also expensive to implement. A lot of web based help desk systems around the world created using ASP.NET or C# are all supported by\par
+MS SQL database.\par
+\par
+\par
+Oracle Database\par
+\par
+\par
+Oracle database is a powerful relational database management system that has a number of features. In today\rquote s market, oracle database management systems are one of the most popular and full featured databases. Oracle databases are widely used as backend database systems for most enterprise applications because they are robust and secure.  Oracle  is  a  power  hungry\par
+database that  requires  a  lot  of system  resources  to  function  properly. One of its major\par
+\par
+\par
+\par
+23 | P a g e\par
+advantages is that it is platform independent. An Oracle database will work well with any web based system as long as there are enough resources required for it to run on.\par
+\par
+\par
+\par
+\par
+2.5  REVIEW OF SIMILAR SYSTEMS\par
+\par
+\par
+\par
+OrangeHRM\par
+\par
+\par
+OrangeHRM is a powerhouse human resources tool that any small or midsize business can benefit from using. With OrangeHRM, you have options: You can download and install the system on your own hardware, or you can purchase a hosted solution. To get prices for the hosted solution, you have to contact them from their Request a Quote page.\par
+\par
+\par
+OrangeHRM's features include: fully modular, addons (e.g., benefits, employee self-service, training, budget, job and salary history, etc.) for purchase, all standard HR functions (employees, leave, benefits, performance, etc.), and more.\par
+\par
+\par
+The installation is fairly straight-forward. With a self-extracting Windows installer or full-source installations for Windows, Mac, and Linux, you can get OrangeHRM up and running on nearly every platform. If you don't have the hardware or the skills to set up Orange onsite, you can request a quote for a hosted instance of OrangeHRM. You can also purchase support plans and\par
+customizations.\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+24 | P a g e\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+Figure 2.5 Snapshot of OrangeHRM interface\par
+\par
+\par
+SimpleHRM\par
+\par
+\par
+SimpleHRM offers an open source version of its professional platform. This version offers time management, and it can be installed on either a WAMP (Windows Apache MySQL PHP) or LAMP (Linux Apache MySQL PHP) server.\par
+\par
+\par
+Once installed, SimpleHRM offers every feature you need to solidify your HRM department: employee information, leave management, travel management, expense management, benefit management, and task reporting. SimpleHRM allows you to assign a CV to an employee and define eligibility for rehire. Each major module offers plenty of granular control, and the user\par
+interface is well laid out.\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+25 | P a g e\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+Figure 2.6 Snapshot of SimpleHRM interface\par
+\par
+\par
+Waypoint HR\par
+\par
+\par
+WaypointHR is the HR software for any small or midsize company looking for a platform that nearly any user, of any experience level, can use. WaypointHR can manage employee data, which include:\par
+\par
+\par
+\f2\'b7\f0           Personal details\par
+\par
+\f2\'b7\f0           Holiday/sickness/absence history\par
+\par
+\f2\'b7\f0           Employment/contract/job/salary details\par
+\par
+\f2\'b7\f0           Discipline and grievance records\par
+\par
+\f2\'b7\f0           Performance appraisals\par
+\par
+\f2\'b7\f0           Exit interviews and termination\par
+\par
+\f2\'b7\f0           A five-step add employee wizard\par
+\par
+\f2\'b7\f0           Export reports to PDF\par
+\par
+\f2\'b7\f0           Multi-site facility layering\par
+\par
+\par
+\par
+\par
+\par
+26 | P a g e\par
+WaypointHR also offers an active online support forum, a dedicated support website (which includes developer support), as well as an on-demand solution (for those that do not want to bother with the installation of WaypointHR on a local machine). To get a quote for the on- demand solution, visit this page, fill out the questionnaire, and wait to hear from WaypointHR.\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+Figure 2.7 Snapshot of WaypointHR interface\par
+\par
+\par
+Sage HR Africa\par
+\par
+\par
+Sage HR Africa offers world-class HR and payroll software and services to the African continent. We have an African footprint of 35 countries that includes an extensive network of\par
+Strategic and Business Partners that can assist you with installation, training and any on-site\par
+\par
+\par
+\par
+27 | P a g e\par
+support that your business requires. We are committed to providing robust, innovative and easy- to-use human resource and software applications that will make your business life so much easier. We ensure statutory compliance with local authorities and with our software your business is always in line with country-specific payroll and HR rules and regulations.\par
+Our HR and Payroll software is ideal for any size and type of business. Whether you are just starting out, or if you have an existing business that is growing, Sage HR Africa\rquote s software solutions aim to support the growth of your business and to develop an ongoing partnership with you, our potential customer, for the long-term.\par
+\par
+\par
+Sage HR Africa Leave application Workflow\par
+\par
+\par
+\par
+\par
+Figure 1 Leave application Workflow\par
+\par
+\par
+\par
+\par
+\par
+2.6  SUMMARY\par
+The literature review in this chapter has looked at a brief overview of existing HR and employee management systems and what procedures have to be followed when executing these HR tasks. Various front and back end technologies  were also  reviewed  highlighting the  advantages  and disadvantages  of  their  use, lastly the chapter looked at the importance of security over the Internet and suggested ways in which a web application can be made secure. The next chapter\par
+will take a look at the system analysis of the developed system.\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+28 | P a g e\par
+3  CHAPTER THREE: SYSTEM ANALYSIS\par
+\par
+\par
+\par
+3.1  INTRODUCTION\par
+This chapter gives a detailed outline of the software development methodology used in this project following up the various existing software development methodology discussed in chapter two. The strength and weaknesses of the chosen methodology have been outlined. Further, the functional and non-functional requirements of the system are explained in detail and the use cases which are a list of steps, typically defining interactions between a role and a\par
+system, to achieve a goal. Class diagrams have been given to show detailed data modeling of the system which will be translated into code.\par
+\par
+\par
+\par
+3.2  SOFTWARE DEVELOPMENT METHODOLOGY OF CHOICE\par
+Having briefly discussed a few software development methodologies in chapter two, the incremental method was favored for the following reasons:\par
+\f1\bullet\f0     It allows for development of high-risk or major functions first\par
+\par
+\f1\bullet\f0     Each release delivers an operational product\par
+\par
+\f1\bullet\f0     Customer can respond to each build\par
+\par
+\f1\bullet\f0     Uses  \f1\ldblquote\f0 divide and conquer\f1\rdblquote\f0  breakdown of tasks\par
+\par
+\f1\bullet\f0     Lowers initial delivery cost\par
+\par
+\f1\bullet\f0     Initial product delivery is faster\par
+\par
+\f1\bullet\f0     Customers get important functionality early\par
+\par
+\f1\bullet\f0     Risk of changing requirements is reduced\par
+\par
+\par
+\par
+\par
+3.3  SYSTEM DESIGN\par
+\par
+3.3.1   Use case analysis\par
+A  use case defines  a  goal-oriented  set  of  interactions  between  external  users  and the system  under consideration or development. Thus a Use Case Scenario is a description that illustrates, step by step, how a user is intending to use a system, essentially capturing the system\par
+behavior from the user's point of view.\par
+\par
+\par
+\par
+29 | P a g e\par
+In order to create relevant use cases for the system, the following actors for the system have been identified:\par
+\f2\'b7\f0         Employee (could be lecturers, accountants, technicians)\par
+\par
+\f2\'b7\f0         Head Of Department (HOD)\par
+\par
+\f2\'b7\f0         Human Resource (HR)\par
+\par
+\f2\'b7\f0         Admin\par
+\par
+\par
+\par
+\par
+\par
+Actors, Use Cases and their Description\par
+\par
+\par
+\par
+Actor                                           Use case                                      Description\par
+\par
+Employee                                     Edit Profile                                  Employee will be able to edit personal details such as emergency contacts as well as technical skills acquired.\par
+Employee                                     Apply Leave                                Employee will be able to submit leave request along with supporting documents.\par
+Employee                                     View Tasks                                  The employee will be able to view tasks assigned by the HOD.\par
+Employee                                     Check Leave days                       Employee will be able to check leave days.\par
+HOD                                            Assign tasks                                 HOD will assign tasks to employees in his department.\par
+Admin                                          Add new employee                      Add mean will be able to create new employees.\par
+Admin                                          Edit user role                               Admin will be able to edit user roles.\par
+HR                                               Accept leave application             HR will accept leave\par
+\par
+\par
+\par
+30 | P a g e\par
+applications from employees. HR                                               Reject leave application              HR will reject leave\par
+applications from employees.\par
+\par
+Admin                                          View user activity log                 Admin will be able to view activity log of all users in the system\par
+HOD                                            Create projects                             The HOD is able to create a project, come up with a\par
+project teams as well as assign tasks to the project members breaking it down into a WBS.\par
+HOD                                            Create trainings                           HOD will create trainings and delegate employees that will attend the trainings.\par
+HR                                               Generate reports                          HR will be able to generate reports containing employee\par
+information.\par
+\par
+\par
+\par
+\par
+\par
+Table 3.1 Actors, Use Cases and their Description\par
+\par
+\par
+\par
+Use case diagrams:\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+31 | P a g e\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+Figure 3.4 Employee use case\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+32 | P a g e\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+Figure 3.5 HOD use case\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+33 | P a g e\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+Figure 3.6 Human Resource use case\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+34 | P a g e\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+Figure 3.7 Admin use case\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+35 | P a g e\par
+3.3.2   Class diagram\par
+In the class diagram below, the Employee and Admin classes inherit from the User class. The employee class is also parent class to Human Resource class, Head of Department class and Ordinary employee class. An ordinary employee may include lecturers, accountants and all other employees that do not interact with the system with many privileges. These employees carry out the same operations.\par
+\par
+\par
+\par
+Figure 3.8 Employee Management System Class diagram\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+36 | P a g e\par
+3.4  DEVELOPMENT TOOLS\par
+This part of the chapter is an account of the technologies that could be used in the development of the system.\par
+\par
+3.4.1   Front End Technologies\par
+Front end-is a term used to characterize program interfaces and services relative to the initial user of these interface and services. It usually refers to the client side of an application. A front end application is one that users interact with directly. Turban et al (2008, p45) defines front end as the portion of an e-seller\rquote s portal, electronic catalogs, a shopping cart, a search engine and a payment gateway.\par
+\par
+HTML\par
+\par
+\par
+HyperText  Markup  Language (HTML) is  a  computer  language devised  to  allow  website creation.  These websites  can  then  be viewed  by anyone else  connected  to  the  Internet.  It is relatively easy to learn, with the basics being accessible to most people in one sitting; and\par
+quite powerful in what it allows you to create.\par
+\par
+\par
+Having the basic knowledge of HTML will could help make or develop m-commerce websites and will also prove to be handy especially for editing and modifying web pages. Furthermore, it has some low cost benefits because of its many free online tutorials and advice support which is vital for m-commerce development.\par
+\par
+JavaScript\par
+\par
+\par
+JavaScript is a scripting language that is browser based and was developed by Netscape to enable web masters/authors to add interactivity and enhances behavior of web pages [11]. Some of the dynamic behavior that can be generated by JavaScript is validating form, performing specific actions e.g. after a mouse click, adding timestamps etc. JavaScript is an open language and anyone can use it. It also shares m any of the features and structures of the Java programming language, though it is not really related to Java. It was developed independently.\par
+\par
+CSS\par
+\par
+CSS is a style sheet language used to describe presentation and layout of HTML tags. CSS is used to enable separation of document content from document presentation. This refers to the\par
+\par
+37 | P a g e\par
+separation of document presentation aspects such as colors, layouts and fonts from the actual document content. CSS helps us achieve layout design and control much easier.\par
+\par
+JSON\par
+\par
+\par
+JSON (JavaScript Object Notation) is a lightweight data-interchange format. It is easy for humans to read and write. It is easy for machines to parse and generate. It is based on a subset of the JavaScript Programming Language. JSON is a text format that is completely language independent but uses conventions that are familiar to programmers of the C-family of languages, including C, C++, C#, Java, JavaScript, Perl, Python, and many others. These properties make JSON an ideal data-interchange language.\par
+\par
+JSON is built on two structures:\par
+\par
+\par
+\f2\'b7\f0           A collection of name/value pairs. In various languages, this is realized as an object, record, struct, dictionary, hash table, keyed list, or associative array.\par
+\f2\'b7\f0           An ordered list of values. In most languages, this is realized as an array, vector, list, or sequence.\par
+\par
+These are universal data structures. Virtually all modern programming languages support them in one form or another. It makes sense that a data format that is interchangeable with programming languages also be based on these structures.\par
+\par
+jQuery\par
+\par
+\par
+jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to- use API that works across a multitude of browsers. With a combination of versatility and extensibility, jQuery has changed the way that millions of people write JavaScript.\par
+\par
+\par
+\par
+\par
+3.4.2   Back End Technologies\par
+PHP\par
+\par
+\par
+\par
+\par
+38 | P a g e\par
+PHP, abbreviated to Hypertext Preprocessor is a server side web programming language that can be embedded into HTML. PHP is free software i.e. it is open source code. It is used for creating dynamic web pages that interact with the user and can include functionalities such as getting user input, manipulation of the input and storage of this data in a suitable DBMS. PHP is also easy to integrate with web pages. [12]\par
+\par
+MySQL\par
+\par
+\par
+MySQL stands for My Structured Query Language. It is the world\rquote s most popular open source relational DBMS. MySQL is available for free under the GNU General Public License for open source benefits/reasons related to development. Initially MySQL was free and some versions of it are still free though if you desire to use MySQL for commercial purposes you will need to purchase a license. It is non-proprietary, easily extensible and platform independent. Its downside is that it lacks a graphical user interface; therefore you need to know how the database works to make the most efficient use of it. [13]\par
+\par
+3.5  SUMMARY\par
+The core and emphasis of this chapter was the analysis of the current system. The various development tools used in the project were also discussed in this chapter. The next chapter will\par
+focus on the design characteristics and aspects of the system to be developed.\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+39 | P a g e\par
+4  CHAPTER FOUR: DESIGN\par
+\par
+4.1  INTRODUCTION\par
+This chapter builds on the work done in the Analysis Chapter and gives documentation for the Design of the Employee Management System. The EMS is modeled in terms of objects and classes and their interactions with each other. Explanation of the proposed system is done as well structure of the Entity Relationship Diagram (ERD). Design of the User Interface is also discussed.\par
+\par
+4.2  EXPLANATION OF THE PROPOSED SYSTEM\par
+The proposed system is designed to eliminate all the drawbacks of the existing employee management software. The system shall be responsible for maintaining information about employees, thus their personal profile. The system shall incorporate leave management all the way from application to acceptance/rejection of leave requests as well as all employee projects with close monitoring of the projects from creation to completion and trainings to assist in monitoring active and inactive employees.\par
+\par
+The main features to be added include:\par
+\par
+\par
+\f2\'d8\f0    Employee profiles\par
+\par
+\f2\'d8\f0    Leave management\par
+\par
+\f2\'d8\f0    Task management\par
+\par
+\f2\'d8\f0    Trainings\par
+\par
+\f2\'d8\f0    Projects (Work Breakdown Structure)\par
+\par
+\f2\'d8\f0    Notifications\par
+\par
+\f2\'d8\f0    Employee Self-Service (ESS)\par
+\par
+\f2\'d8\f0    Resume Tracking\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+40 | P a g e\par
+4.3  SYSTEM AND ALGORITHM FLOWCHARTS\par
+Activity Diagrams are used to model different aspects of a system. The following activity diagram is used to model the leave application function.\par
+\par
+\par
+\par
+\par
+\par
+\par
+Figure 4.1 Activity diagram for leave application\par
+\par
+\par
+\par
+\par
+\par
+\par
+41 | P a g e\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+Figure 4.2 Leave Acceptance/Rejection\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+42 | P a g e\par
+4.4  SYSTEM STRUCTURE CHART DFD AND ERD\par
+\par
+4.4.1 Data Flow Diagram (DFD)\par
+\par
+\par
+\par
+\par
+\par
+Figure 4.3 Authorization & Authentication DFD\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+43 | P a g e\par
+4.4.2 ENTITY RELATIONSHIP DIAGRAM (ERD)\par
+\par
+\par
+\par
+\par
+\par
+Figure 4.4 Entity Relationship Diagram\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+44 | P a g e\par
+4.5  STORYBOARD\par
+\par
+4.5.1   Sequence Diagrams\par
+Sequence diagrams help in the identification of a detailed level of the operations required to implement the functionality depicted by a use case model.\par
+\par
+Scenario 1: Admin add new employee\par
+\par
+\par
+1.   The user logs in by providing correct username and password.\par
+\par
+2.   If username and password are not found on the database access into the system is denied.\par
+\par
+3.   If the credentials are identical to the ones found on the database, access is granted.\par
+\par
+4.   User enters the details of the new employee.\par
+\par
+5.   The user input is written to the database.\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+Figure 4.5 Add new user sequence diagram\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+Scenario 2: HOD Create Projects\par
+\par
+45 | P a g e\par
+1.   The user logs in by providing correct username and password.\par
+\par
+2.   If username and password are not found on the database access into the system is denied\par
+\par
+3.   If the credentials are identical to the ones found on the database, access is granted.\par
+\par
+4.   The user creates a project and assigns members.\par
+\par
+5.   The user input is written to the database.\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+Figure 4.6 Create Projects Sequence Diagram\par
+\par
+\par
+Scenario 3: Employee leaves application\par
+\par
+\par
+1.   The user logs in by providing correct username and password.\par
+\par
+2.   If the username and password are not found in the database access into the system is denied.\par
+3.   If the credentials are identical to the ones found on the database, access is granted.\par
+\par
+4.   User requests for leave form.\par
+\par
+5.   User enters leave details.\par
+\par
+6.   Details are written to the database.\par
+\par
+7.   A message confirming details have been submitted is displayed to the user.\par
+\par
+\par
+\par
+\par
+46 | P a g e\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+Figure 4.7 Employee Leave Application Sequence Diagram\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+Refer to appendix A for Report generation and edit account sequence diagrams.\par
+\par
+\par
+\par
+\par
+\par
+4.6  INTERFACE DESIGN\par
+The web application was created with the following design considerations in mind:\par
+\par
+\par
+\f2\'d8\f0    Consistent. The website should have a similar look and feel on every page. Every page should have the same header/logo, heading style, fonts, navigations etc.\par
+\f2\'d8\f0    Efficient and easy to maintain. This refers to the fact that there is need to separate\par
+\par
+content from layout, so that you can easily change your page design without editing every page on the site.\par
+\f2\'d8\f0    Layout. The layout of each page should have a good contrast between the text and\par
+\par
+background area. This helps considerably with visibility as it will be difficult to read the\par
+\par
+\par
+\par
+\par
+\par
+47 | P a g e\par
+text if it is almost the same color as the background. Monitor size should also be taken into consideration.\par
+\f2\'d8\f0    Easy to navigate and use. Users should not have a hard time trying to navigate the site.\par
+\par
+Navigation links should be consistent and clearly labeled. All navigation links should also be working properly and should point to the intended page/site.\par
+\f2\'d8\f0    Browser compatible. When designing the site consider different browser environments.\par
+\par
+Extensive testing should be done on each page in all the major browsers and the design changed appropriately to cater for all.\par
+\f2\'d8\f0    Visually appealing. The use of color, text, fonts and graphics should be carefully\par
+\par
+considered and used to ensure that the site is visually appealing to its visitors.\par
+\par
+\f2\'d8\f0    Speed. The performance of a website is mostly rated by its up -time and downtime.\par
+\par
+These terms refers to the amount of time it takes the site to respond to requests. Graphics should be kept to a minimum to allow the site to load faster. The pages on the site should load within an acceptable time e.g. under 10seconds. [14]\par
+\par
+4.7  Sketches of graphics\par
+Below is the interface design for the website application:\par
+\par
+\par
+\par
+\par
+Figure 4.1 Login Interface\par
+\par
+\par
+48 | P a g e\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+Figure 4.2 Employee Interface after Login\par
+\par
+\par
+\par
+\par
+Figure 4.3 Admin/HR/HOD Interface after Login\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+49 | P a g e\par
+4.8  SUMMARY\par
+This Chapter has specified the design of the EMS. The aspects of the design  that  have been discussed  are system  design,  interface design, and database design  by providing the DFD and ERD. The next chapter looks at the implementation of the EMS.  This depends on the design\par
+specification given in this chapter.\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+50 | P a g e\par
+5  CHAPTER 5: IMPLEMENTATION\par
+\par
+5.1  INTRODUCTION\par
+This chapter will explore the different aspects concerned with the implementation of the developed system. This project was concerned with the development and implementation the employee management system. We began with analysis of the current and proposed systems, the design of the system to be developed, and in this chapter we shall deal with implementation of the developed system.\par
+\par
+5.2  DESCRIPTION OF DEVELOPED SYSTEM\par
+The developed system encompasses various activities associated with managing employee information.\par
+\par
+The main functionalities available in this system are:\par
+\par
+\par
+\f2\'b7\f0         Maintaining employee profiles\par
+\par
+\f2\'b7\f0         Leave management\par
+\par
+\f2\'b7\f0         ESS\par
+\par
+\f2\'b7\f0         Task management\par
+\par
+\f2\'b7\f0         Employee Trainings\par
+\par
+\f2\'b7\f0         Project Management\par
+\par
+\par
+All these features include the ability to add user, update (edit), and retrieve through search results. It also contains a report generation system that can be saved in a pdf file format.\par
+\par
+The system works in the following manner:\par
+\par
+\par
+5.2.1   Accessing the system\par
+Various companies and organizations may have different employee structures and hierarchy. Being generic, the developed System has four main access levels which are:\par
+\par
+\f2\'d8\f0    Employee\par
+\par
+\f2\'d8\f0    Head of Department (HOD)\par
+\par
+\f2\'d8\f0    Human Resource Manager (HR)\par
+\par
+\f2\'d8\f0    Administrator\par
+\par
+\par
+51 | P a g e\par
+All users are presented with the same login interface. User must login the system by means of valid username/password combination. After access is granted to the system, the admin can add a new user to the system by entering the basic information which are the full names and email address. The admin also assigns the new user a role which will determine the access level.\par
+During the process of user registration, the all users are issued with a unique username and password combination. Seeing that the system holds private employee information, the admin\par
+has the ability to monitor all activity logs into the system by date and time. The newly added user logs into the system with a default password which can later be changed to a more secure password. All employees can edit basic information such as newly acquired technical skills and emergency contacts. Employees can apply for leave by filling in a form as well as submitting an attachment to support their leave request.\par
+\par
+The HOD has the ability to view all employees under his/her department, assign a task and trainings. The HOD can also create a project, add members to the project and create a work breakdown structure. Being an employee, the HOD can apply for leave as well as check leave days accrued.\par
+\par
+Upon logging in to the system, the HR manager gets notifications on the leave applications submitted and has the ability to approve or reject leave requests as they are submitted. The HR carries out all employee tasks which include the ability to view and edit basic details, view pending tasks, projects and trainings. The HR also has to the ability to generate employee reports in PDF format.\par
+\par
+\par
+\par
+\par
+5.3  TECHNICAL DETAILS OF IMPLEMENTED SYSTEM\par
+\par
+5.3.1   Model View Controller architecture (MVC)\par
+In the implementation, as shown in figure 5.1, the whole application is broken down into a series of top-level components which may be referred to as tasks, actions, functions, operations or transactions (that's user transactions, not database transactions), each of which is may be related to a Use Case. Each transaction component references a single controller, one or more models, and usually a single view. Some components do not have a view as they are called from other\par
+components in order to perform a service, and once this service has been completed they return\par
+\par
+\par
+52 | P a g e\par
+control to the calling component. Each component is self-executing in that it deals with both the\par
+\par
+HTTP GET and POST requests. [15]\par
+\par
+\par
+\par
+\par
+Figure 5.1 Model View Controller Architecture\par
+\par
+\par
+\par
+\par
+\par
+5.3.2   MySQL Triggers\par
+\par
+5.3.2.1    Implementation of MySQL Triggers\par
+\par
+\par
+In MySQL, a trigger is a set of SQL statements that is invoked automatically when a change is made to the data on the associated table. A trigger can be defined to be invoked either before or after the data is changed by INSERT, UPDATE or DELETE statements. MySQL allows you to\par
+define maximum six triggers for each table.\par
+\par
+\par
+\par
+\par
+53 | P a g e\par
+\f2\'b7\f0           BEFORE INSERT \f1\endash\f0  activated before data is inserted into the table.\par
+\par
+\f2\'b7\f0           AFTER INSERT- activated after data is inserted into the table.\par
+\par
+\f2\'b7\f0           BEFORE UPDATE \f1\endash\f0  activated before data in the table is updated.\par
+\par
+\f2\'b7\f0           AFTER UPDATE - activated after data in the table is updated.\par
+\par
+\f2\'b7\f0           BEFORE DELETE \f1\endash\f0  activated before data is removed from the table.\par
+\par
+\f2\'b7\f0           AFTER DELETE \f1\endash\f0  activated after data is removed from the table.\par
+\par
+\par
+When you use a statement that makes change to the table but does not use INSERT, DELETE or UPDATE statement, the trigger is not invoked. For example, the TRUNCATE statement removes the whole data of a table but does not invoke the trigger associated with that table.\par
+\par
+There are some statements that use the INSERT statement behind the scenes such as REPLACE statement and LOAD DATA statement. If you use these statements, the corresponding triggers associated with the tables if available will be invoked. [16]\par
+\par
+5.3.3 System installation\par
+\par
+\par
+The system was developed and tested on a laptop computer running Windows 7, and the XAMP Server. In order for the Web application to be accessible via the Internet it will have to be installed on a Web Server running Apache, PHP and MySQL. The suitable operating system for the web server will be Linux as it is more stable and less prone to virus but a windows based platform will equally do the job just as well. A suitable domain name will have to be chosen and registered in order for the web application to be accessed via a URL and hosting and administration fees paid to the web hosting company of choice either annually or monthly depending on the package and terms agreed upon. The web application will be accessible via most of the popular web browsers on the market. A suitable web browser e.g. Mozilla Firefox will have to be installed on the client machine wishing to access the web application. [16]\par
+\par
+\par
+\par
+\par
+5.3.3   Algorithms\par
+MD5 Encryption\par
+\par
+\par
+\par
+\par
+\par
+\par
+54 | P a g e\par
+MD5 algorithm was used for password encryption. MD5 stands for Message\par
+\par
+Digest algorithm 5 is a widely used cryptographic hash function. The idea behind this algorithm is to take up a random data (text or binary) as an input and generate a fixed size \f1\ldblquote\f0 hash value\f1\rdblquote\f0  as the output. The input data can be of any size or length, but the output \f1\ldblquote\f0 hash value\f1\rdblquote\f0  size is always fixed. Here is an example (Figure 5.2) of MD5 Hash function at work:\par
+\par
+\par
+\par
+\par
+\par
+\par
+Figure 5.2 MD5 Encryption procedure\par
+\par
+\par
+As can be seen from the above example, whatever input size is given, the algorithm generates a fixed size (32 digit hex) MD5 hash. [17]\par
+\par
+5.3.4   Pseudocode\par
+\par
+\par
+\par
+Login into the system\par
+\par
+\par
+Startup system\par
+\par
+\par
+Enter username and password On clicking the login button Connect to database\par
+Query database to know whether user credentials are correct\par
+\par
+\par
+\par
+55 | P a g e\par
+If not\par
+\par
+\par
+Deny access and return login page with an error message\par
+\par
+\par
+If correct\par
+\par
+\par
+Check if credentials are for administrator\par
+\par
+\par
+If yes\par
+\par
+\par
+Allow login\par
+\par
+\par
+Set admin session\par
+\par
+\par
+Redirect administrator to admin home page\par
+\par
+\par
+If no\par
+\par
+\par
+Allow login\par
+\par
+\par
+Set user session\par
+\par
+\par
+Redirect user to user home page\par
+\par
+\par
+Add new user\par
+\par
+\par
+Check if administrator is logged in\par
+\par
+\par
+If correct\par
+\par
+\par
+Check if all fields entered are correct\par
+\par
+\par
+If not\par
+\par
+\par
+System message: please enter all fields\par
+\par
+\par
+If correct\par
+\par
+\par
+Registration of new user successful\par
+\par
+\par
+\par
+\par
+\par
+\par
+56 | P a g e\par
+Apply for leave\par
+\par
+\par
+Check if employee is logged in\par
+\par
+\par
+If correct\par
+\par
+\par
+Check if all fields are entered\par
+\par
+\par
+If not\par
+\par
+\par
+System message: please enter fields\par
+\par
+\par
+Check if file has being attached\par
+\par
+\par
+If not\par
+\par
+\par
+System message: please attach file\par
+\par
+\par
+If correct\par
+\par
+\par
+Leave request has being made\par
+\par
+\par
+\par
+\par
+\par
+5.4  SCREENSHOTS OF DEVELOPED SYSTEM\par
+Refer to appendix C for screenshots of developed system.\par
+\par
+\par
+5.5  SUMMARY\par
+This chapter has outlined how the employee management system has been implemented using the Model View Controller (MVC) architecture. The method selected for systems change-over has been highlighted and justified, lastly the chapter concludes by showing how the system can\par
+be deployed. The next chapter is on Testing,  it  focuses on  the tests  carried  out  to  ensure the\par
+\par
+system  functions  according to  its specifications.\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+57 | P a g e\par
+6  CHAPTER SIX: TESTING AND VERIFICATION\par
+\par
+6.1  INTRODUCTION\par
+Testing is very important and critical to the success of any project that aims at delivering working software. There are many types of testing that a system may be subjected to, however only the ones in the testing objectives will be carried out for this system.\par
+\par
+6.2  SCOPE\par
+The overall purpose of testing is to ensure the Employee Management System meets all of its functional and business requirements. The purpose of this chapter is to describe the overall test plan and strategy for testing the system.\par
+\par
+6.3  TESTING GOALS\par
+The goals in testing this system include validating the quality, usability, reliability and performance of the application. Testing will be performed from a black-box approach. Tests will be designed around requirements and functionality.\par
+\par
+6.4  CONFIRMATION TESTING\par
+Confirmation testing or re-testing: When a test fails because of the defect then that defect is reported and a new version of the software is expected that has had the defect fixed. In this case we need to execute the test again to confirm that whether the defect got actually fixed or not. This is known as confirmation testing and also known as re-testing. It is important to ensure that the test is executed in exactly the same way it was the first time using the same inputs, data and environments. [18]\par
+\par
+\par
+Hence, when the change is made to the defect in order to fix it then confirmation testing or re- testing is helpful.\par
+\par
+\par
+6.5  REGRESSION TESTING\par
+During confirmation testing the defect got fixed and that part of the application started working as intended. But there might be a possibility that the fix may have introduced or uncovered a different defect elsewhere in the software. The way to detect these \f1\lquote\f0 unexpected side-effects\f1\rquote\f0  of fixes is to do regression testing. The purpose of a regression testing is to verify that\par
+modifications in the software or the environment have not caused any unintended adverse side\par
+\par
+58 | P a g e\par
+effects and that the system still meets its requirements. Regression testing are mostly automated because in order to fix the defect the same test is carried out again and again and it will be very tedious to do it manually. Regression tests are executed whenever the software changes, either as a result of fixes or new or changed functionality. [19]\par
+\par
+6.6  TEST PLANS AND RESULTS\par
+The Test Plan is derived from the Requirements, Functional Specifications, and detailed Design\par
+Specifications. The Test Plan identifies the details of the tests, identifying the associated test case areas within the product. [20]\par
+\par
+Test Case               Test Purpose         Test Condition      Expected\par
+\par
+Outcome\par
+Actual Result\par
+\par
+Login                      Check username and\par
+Password\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+Add new user         To ensure that a new user is added to the system successfully.\par
+\par
+If user details are not correct, display error message\par
+\par
+\par
+\par
+\par
+If user already exists in the system, error message should display.\par
+\par
+Grant Access to the\par
+applicable main system\par
+\par
+\par
+\par
+\par
+New user should be successfully added to the system.\par
+\par
+User successfully logs into the system upon submission of correct login credentials.\par
+If email address entered already exists in the system, error message is displayed. If the email address of the new employee does not exist in the system, new employee is successfully\par
+added.\par
+\par
+\par
+59 | P a g e\par
+Edit personal details\par
+To ensure that once different details are provided on the edit personal details form and\par
+submitted, these details are altered in the database to reflect the recent\par
+changes\par
+On the edit personal details form provide different information from what is currently being displayed\par
+When the form is altered the details should be altered in the database and a confirmation message of the change should be displayed.\par
+Once the data in the form is altered and the submit button clicked the details in the database are altered and a confirmation message of the change is displayed.\par
+\par
+Apply leave            To test if all employees can successfully apply for leave.\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+Create project         Test if a Head of Department can create a project and later assign a project team.\par
+\par
+Whenever an employee applies for leave, information as well as attachments should be submitted to the HR manager. Whenever a project is\par
+created, HOD should be able to assign project team and view\par
+members.\par
+\par
+Leave request should be sent when all required fields are submitted and necessary documents have being attached to the request.\par
+A project should be created as well as coming\par
+up with a project team and WBS.\par
+\par
+Leave request is submitted as required and a message of success is displayed.\par
+\par
+\par
+\par
+\par
+\par
+\par
+Project is created and HOD can view the project team.\par
+\par
+\par
+60 | P a g e\par
+View notifications\par
+Test if employee is notified when leave has being accepted or rejected and when new tasks, trainings or projects have being assigned.\par
+If employee has being added to a project, he/she should get a notification.\par
+Notifications should be displayed on the employee interface whenever a task has being assigned; employee has being added to a project team project, or trainings. As well as when a\par
+leave request has being accepted or\par
+rejected.\par
+Notifications appear on the employee interface.\par
+\par
+Upload picture        Test if users can upload a profile picture associated to their account\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+Generate reports     Test if HR can generate employee\par
+reports.\par
+\par
+Employee should be able to upload a profile picture\par
+if they so wish.\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+To ensure that the selected report is\par
+displayed\par
+\par
+Employee is able to upload profile picture.\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+Once a choice of report is made by clicking the link\par
+of choice the\par
+\par
+Message of success is displayed when employee uploads picture and they are asked to log out and back in for changes to take place.\par
+When the choice of report is made and link clicked a\par
+report is\par
+\par
+\par
+61 | P a g e\par
+report should be\par
+\par
+displayed.\par
+displayed.\par
+\par
+\par
+\par
+\par
+Table 6.1 Shows system test plan and results\par
+\par
+\par
+View appendix D for screenshots of test results.\par
+\par
+\par
+6.7  SUMMARY\par
+The chapter discussed how the proposed system was subjected to various types of testing. This brought to light why it is very cardinal to test a new system before it is introduce on the main\par
+stream of an organization\f1\rquote\f0 s business.\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+62 | P a g e\par
+7  CHAPTER SEVEN: CONCLUSION\par
+\par
+7.1  INTRODUCTION\par
+The aim of this chapter is to draw conclusions of the work done or achieved and to give an assessment of the  completed system,  discuss the  Problems faced, limitations of  the system and  give  future recommendations on how the system can be improved.\par
+\par
+7.2  RESULTS\par
+The software product produced was fairly good, it achieved most of the user requirements, the user interface is good and is very easy to navigate, and even novice users can find their way around the web application easily. The client side validation is excellent. The lack of integration with a payroll system is the major drawback and the system was also unable to generate structured reports i.e. reports based on specific information the Human Resource is interested in.\par
+\par
+7.3  PROBLEMS FACED\par
+The biggest challenge faced was getting hold of employee information for Human Resource. The project was initially aimed at implementing an HR system for UNZA but that proved to be a challenge because employee information is very critical. This led to the implementation of a generic system thereby drawing a few assumptions were possible meaning that requirements kept on changing as different views were put into consideration as compared to software which has a specific customer\par
+\par
+7.4  LIMITATIONS\par
+\par
+7.4.1   Custom report generation\par
+In the designed system, the HR manager can generate a report containing all the employee information from personal profile, skills and educational background. Sometimes, the HR manager may be looking for specific employee information e.g. Educational background, technical skills or language and location in cases where a transfer is to be made, this poses a challenge because the HR will always have to generate a report of all the information about an employee, some of which may be not be needed.\par
+\par
+7.4.2   Head of Department heads all Projects\par
+The head of department creates a project and assigns tasks to a project team, therefore he becomes the project manager. This brings about a challenge in cases where a project must be\par
+managed by an employee that does not have the role of head of department.\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+63 | P a g e\par
+7.4.3   Leave Management\par
+Successful leave submission can only be made when an attachment is added to the leave request. This is a challenge for leave requests that may not have supporting documents.\par
+\par
+7.4.4   Browser support\par
+The highly sleek and intuitive interface was made in order to improve Human Computer Interaction (HCI). However, this comes with challenges because lower versions of Internet Explorer (i.e. IE9 and lower) do not support certain features such as column-fill, column-span, align-self, backface-visibility etc.\par
+\par
+7.5  FUTURE WORK\par
+\par
+7.5.1   Leave Management\par
+The leave management module can be improved by having all leave requests approved by the head of department before submission rather than going straight to the HR manager. This feature is important because the HOD /Supervisor should know which of his/her employees which to go on leave.\par
+\par
+7.5.2   Integration with payroll system\par
+In order for the system to be more comprehensive, I\f1\rquote\f0 d recommend an integration of the system to a\par
+\par
+payroll system that will enable employees view and download their pay slips on demand.\par
+\par
+\par
+7.5.3   Employee Performance\par
+The designed system provides the HOD with the ability to assign tasks to project members. If further worked on, this functionality can assist in determining the performance of employees based on their ability to finish tasks on time.\par
+\par
+7.5.4   Information archiving\par
+A system holding all the employee information should have some form of archiving system so that retired, suspended or fired employees are archived rather than been completely deleted from the system. This is so because cases may occur where details of an ex-employee may be required especially in cases where an employee did several projects and there details are required for future reference.\par
+\par
+7.6  LEARNING EXPERIENCE\par
+This project assisted me to gain a practical experience and apply the knowledge assimilated from the previous courses undertook. Putting the knowledge gained earlier and applying different techniques from past courses was interesting and certain concepts, tools and techniques only made sense after seeing their application in a real world scenario. It was extremely challenging at times but it has been a great and\par
+worthwhile learning experience.\par
+\par
+64 | P a g e\par
+There is not at all any doubt that the employee management system would be an asset to any company, small or large.\par
+\par
+7.7  CONCLUSION\par
+In this chapter, the results were discussed, problems faced and limitations were elaborated. Future recommendations for the extension and improvement of the system have also been discussed as well as\par
+well as an assessment of achieved functionality.\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+65 | P a g e\par
+8  REFERENCES\par
+\par
+\par
+\par
+[1]       OrangeHRM Open Source, Retrieved: November 4, 2013. From:\par
+\par
+{{\field{\*\fldinst{HYPERLINK http://www.orangehrm.com/open-source-product-features-pim.shtml }}{\fldrslt{http://www.orangehrm.com/open-source-product-features-pim.shtml\ul0\cf0}}}}\f0\fs24\par
+\par
+\par
+[2]       A.S.SyedNavaz, A.S.SyedFiaz, C.Prabhadevi, V.Sangeetha, S.Gopalakrishnan, \f1\ldblquote\f0 Human Resource Management System\f1\rdblquote\f0 , IOSR Journal of Computer Engineering (IOSR-JCE), Volume 8, Issue 4 (Jan. \f1\endash\f0  Feb. 2013) Page 62-71.\par
+\par
+[3]       Julie Bulmash, \f1\ldblquote\f0 Human Resource Management and Technology\f1\rdblquote\f0 , Chapter 3\par
+\par
+\par
+[4]       TECH HRM (Human Resource Management System), Retrieved: November 4, 2013.\par
+\par
+From: {{\field{\*\fldinst{HYPERLINK http://www.techjetsolutions.com/brochure/TECHHRM.pdf }}{\fldrslt{http://www.techjetsolutions.com/brochure/TECHHRM.pdf\ul0\cf0}}}}\f0\fs24\par
+\par
+\par
+[5]       Renae Broderick, John W. Boudreau, \f1\ldblquote\f0 Human resource management, information technology, and the competitive edge\f1\rdblquote\f0 , Academy of Management Executive, 1992 Vol. 6\par
+No. 2\par
+\par
+\par
+[6]       Centralized Employee Information, Retrieved: July 8th, 2014. From:\par
+\par
+{{\field{\*\fldinst{HYPERLINK https://www.zoho.com/people/employee-management-system.html }}{\fldrslt{https://www.zoho.com/people/employee-management-system.html\ul0\cf0}}}}\f0\fs24\par
+\par
+[7]       HR and Employee Mnagement Software, Retrieved: July 8th, 2014. From:\par
+\par
+{{\field{\*\fldinst{HYPERLINK http://www.getapp.com/hr-employee-management-software }}{\fldrslt{http://www.getapp.com/hr-employee-management-software\ul0\cf0}}}}\f0\fs24\par
+\par
+[8]       Ian Sommerville, \f1\ldblquote\f0 Software Engineering\f1\rdblquote\f0 , 9th Edition, Addison-Wesley, 2011.\par
+\par
+[9]       What is Enterprise Resource Planning (ERP)? Webopedia. Retrieved: January 17, 2014, from:  {{\field{\*\fldinst{HYPERLINK http://www.webopedia.com }}{\fldrslt{http://www.webopedia.com\ul0\cf0}}}}\f0\fs24\par
+\par
+\par
+[10]     Avison, D. and Fitzgerald,  G.  (2003).Information systems Development Methodologies, Techniques and Tools.3rd Edition. McGraw-Hill Education Limited Bershire\par
+\par
+[11]     Zhiming, L, July 2002 ,Object-Oriented Software Development with UML Retrieved: July 16th 2010. From:\par
+{{\field{\*\fldinst{HYPERLINK http://www.iist.unu.edu/www/docs/techreports/reports/report259.pdf }}{\fldrslt{http://www.iist.unu.edu/www/docs/techreports/reports/report259.pdf\ul0\cf0}}}}\f0\fs24\par
+\par
+\par
+66 | P a g e\par
+[12]     Juan Manuel Munoz Palacio, Information systems development methodologies for Data- driven Decision Support Systems, 2010,\par
+\par
+[13]     Deitel, PJ & Deitel, HM, 2008, Internet & World Wide Web How To Program, Dorling Kindersley, India\par
+[14]     Web design best practices checklist 2009. Retrieved: October 17, 2009, from:\par
+\par
+{{\field{\*\fldinst{HYPERLINK http://terrymorris.net/bestpractices/ }}{\fldrslt{http://terrymorris.net/bestpractices/\ul0\cf0}}}}\f0\fs24\par
+\par
+\par
+[16]     Connolly, T, Begg, C, 2005, Database Systems A Practical Approach to Design\par
+\par
+\par
+Implementation and Management, 4th Edition, Dorling Kindersley, India\par
+\par
+\par
+[17]     Avison, D. and Fitzgerald, G, 2003. Information systems Development Methodologies, Techniques and Tools, 3rd Edition, McGraw-Hill Education Limited, Berkshire\par
+[18]     ASP.NET, 2010. Retrieved: July 9th 2010, from:\par
+\par
+{{\field{\*\fldinst{HYPERLINK http://www.startvbdotnet.com/aspsite/asp/ }}{\fldrslt{http://www.startvbdotnet.com/aspsite/asp/\ul0\cf0}}}}\f0\fs24\par
+\par
+\par
+[19]     Introducing JSON, Retrieved: June 21, 2014, from:  {{\field{\*\fldinst{HYPERLINK http://www.json.org }}{\fldrslt{http://www.json.org\ul0\cf0}}}}\f0\fs24\par
+\par
+\par
+[20]     Employee Self Service, Retrieved: January 15, 2014, from:\par
+\par
+{{\field{\*\fldinst{HYPERLINK http://en.wikipedia.org/wiki/Employee_self-service_%28web-based_application%29 }}{\fldrslt{http://en.wikipedia.org/wiki/Employee_self-service_%28web-based_application%29\ul0\cf0}}}}\f0\fs24\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+67 | P a g e\par
+9  APPENDIX\par
+\par
+9.1  Appendix A \f1\endash\f0  Sequence Diagrams\par
+\par
+9.1.1   Report generation\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+9.1.2   Edit account details\par
+\par
+\par
+\par
+\par
+\par
+\par
+68 | P a g e\par
+9.2  Appendix B \f1\endash\f0  Sample Code\par
+\par
+\par
+\par
+\par
+\par
+\par
+9.2.1   Database Connectivity\par
+\par
+\par
+$active_group = 'default';\par
+\par
+$active_record = TRUE;\par
+\par
+$db['default']['hostname'] = 'localhost';\par
+\par
+$db['default']['username'] = 'root';\par
+\par
+$db['default']['password'] = 'root';\par
+\par
+$db['default']['database'] = 'emp_db';\par
+\par
+$db['default']['dbdriver'] = 'mysql';\par
+\par
+$db['default']['dbprefix'] = '';\par
+\par
+$db['default']['pconnect'] = TRUE;\par
+\par
+$db['default']['db_debug'] = TRUE;\par
+\par
+$db['default']['cache_on'] = FALSE;\par
+\par
+$db['default']['cachedir'] = '';\par
+\par
+$db['default']['char_set'] = 'utf8';\par
+\par
+$db['default']['dbcollat'] = 'utf8_general_ci';\par
+\par
+$db['default']['swap_pre'] = '';\par
+\par
+$db['default']['autoinit'] = TRUE;\par
+\par
+$db['default']['stricton'] = FALSE;\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+9.2.2    User Authentication\par
+\par
+\par
+<?php\par
+\par
+class auth extends  CI_Model \{\par
+\par
+function    construct()\par
+\par
+\par
+69 | P a g e\par
+\{\par
+\par
+// Call the Model constructor parent::   construct();\par
+\}\par
+\par
+// login function\par
+\par
+function authenticate($username,$password)\par
+\par
+\{\par
+\par
+$query  = $this->db->query("select * from users where  username=\par
+\par
+'".$username."' and password ='".md5($password)."'");\par
+\par
+return $query->row_array();\par
+\par
+\}\par
+\par
+function activity($userid,$activity)\par
+\par
+\{\par
+\par
+$sql="insert into activity_log(emp_id,activity)\par
+\par
+values('".$userid."','".$activity."')";\par
+\par
+$this->db->query($sql);\par
+\par
+\}\par
+\par
+function updateuserdetails($userid,$firstname,$lastname,$username,$password,$profil epic)\{\par
+$sql="update users set fname='".$firstname."',lname='".$lastname."',username='".$username."',passw ord='".md5($password)."',profile_pic='".$profilepic."' where users_id='".$userid."'";\par
+$this->db->query($sql);\par
+\par
+\}\par
+\par
+\}\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+70 | P a g e\par
+\par
+\par
+\par
+\par
+\par
+9.2.3   PDF Library\par
+\par
+\par
+<?php if (!defined('BASEPATH')) exit('No  direct script access  allowed');\par
+\par
+class pdf \{\par
+\par
+function pdf()\par
+\par
+\{\par
+\par
+$CI = & get_instance();\par
+\par
+log_message('Debug', 'mPDF class is loaded.');\par
+\par
+\}\par
+\par
+function load($param=NULL)\par
+\par
+\{\par
+\par
+include_once APPPATH.'/third_party/mpdf/mpdf.php';\par
+\par
+if ($params == NULL)\par
+\par
+\{\par
+\par
+$param  = '"en-GB-x","A4","","",10,10,10,10,6,3';\par
+\par
+\}\par
+\par
+return new mPDF($param);\par
+\par
+\}\par
+\par
+\}\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+9.2.4   Leave application\par
+\par
+\par
+function leaveapplication($employeeid,$type,$message,$filename)\{\par
+\par
+\par
+\par
+$this->db->query("INSERT INTO  emp_db.leaves(\par
+\par
+`leave_id` ,\par
+\par
+`employee_id` ,\par
+\par
+\par
+71 | P a g e\par
+`submission_date` ,\par
+\par
+`leave_type` ,\par
+\par
+`leave_start` ,\par
+\par
+`leave_end` ,\par
+\par
+`application_message` ,\par
+\par
+`reply_message` ,\par
+\par
+`leave_status` ,\par
+\par
+`attachment`\par
+\par
+)\par
+\par
+VALUES (\par
+\par
+NULL , '".$employeeid."', '".date('Y/m/d')."', '$type', NULL , NULL ,\par
+\par
+'".$message."', NULL , 'pending','".$filename."'\par
+\par
+)" );\par
+\par
+\par
+\par
+$sql3="select DepartmentID from employee where\par
+\par
+EmployeeID='".$employeeid."'";\par
+\par
+$result=$this->db->query($sql3);\par
+\par
+$res=$result->row_array();\par
+\par
+if($this->session->userdata('users_role')!='hod')\{\par
+\par
+$this->db->query("insert into notifications\par
+(department_id,emp_id,notes,noticeto)values('".$res['DepartmentID']."','".$empl oyeeid."','Leave application by employee of employee id:','hod')  ");\par
+\par
+\par
+\par
+\}\par
+\par
+\}\par
+\par
+function leaveinfo($empid)\{\par
+\par
+$query  = $this->db->query("SELECT leave_status,submission_date,response_date,leave_start,leave_end,reply_mess age,attachment,(leave_end-leave_start) as accepted_days,(date(Now())- leave_start) as days_accrued FROM `leaves` WHERE\par
+employee_id='".$empid."'");\par
+\par
+\par
+72 | P a g e\par
+return $query->result_array();\par
+\par
+\}\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+9.2.5   Create new project and add member\par
+\par
+\par
+function newproject($projecttitle,$startdate,$enddate,$projectnotes,$createdby)\{\par
+\par
+\par
+$this->db->query("insert into projects(project_title,project_startdate,project_enddate,project_notes,createdb y) values('".$projecttitle."','".$startdate."','".$enddate."','".$projectnotes."','".$cre atedby."')");\par
+\}\par
+\par
+function newprojectmember($projectid,$empid,$position)\{\par
+\par
+\par
+\par
+$this->db->query("insert into project_members(project_id,employee_id,position)values('".$projectid."','".$em pid."','".$position."')");\par
+$sql3="select * from employee where  EmployeeID='".$empid."'";\par
+\par
+$result=$this->db->query($sql3);\par
+\par
+$res=$result->row_array();\par
+\par
+$this->db->query("insert into notifications\par
+(department_id,emp_id,notes,noticeto)values('".$res['DepartmentID']."','".$res[' EmployeeID']."','Your hae been added to a new Project:','emp') ");\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+73 | P a g e\par
+9.3  Appendix C \f1\endash\f0  Screen shots of developed system\par
+\par
+9.3.1   Employee interface\par
+\par
+\par
+9.3.2   Admin interface\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+74 | P a g e\par
+9.3.3   Leave management\par
+\par
+\par
+\par
+\par
+\par
+9.3.4   Edit profile\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+75 | P a g e\par
+9.4  Appendix I \f1\endash\f0  Testing\par
+\par
+9.4.1   Login\par
+\par
+\par
+9.4.2   Add new user\par
+\par
+\par
+\par
+\par
+\par
+\par
+76 | P a g e\par
+\par
+\par
+\par
+9.4.3    Edit Account\par
+\par
+\par
+\par
+\par
+\par
+9.4.4    Leave request denied due to pending leave\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+77 | P a g e\par
+9.4.5   Leave request successfully submitted\par
+\par
+\par
+\par
+\par
+\par
+9.4.6   Create Project WBS\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+78 | P a g e\par
+9.4.7   Generate reports\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+79 | P a g e\par
+\par
+}
+ 
